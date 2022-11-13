@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+      * {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(#0f2027, #203a43, #2c5364);
+        height: 100vh;
+        font-family: "Lato", sans-serif;
+        border: solid 15px #fff;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 4rem;
+      }
+
+      #main-heading {
+        font-size: 2.5rem;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      #movies {
+        border: solid 5px #fff;
+        padding: 30px;
+        border-radius: 20px;
+        font-size: 2rem;
+        text-align: center;
+        color: #fff;
+      }
+
+      #movies li {
+        margin-bottom: 10px;
+        border: solid 2px #fff;
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      .div2 {
+        border: solid 10px #fff;
+        border-radius: 20px;
+        font-size: 3.5rem;
+        text-align: center;
+        padding: 80px;
+        color: #fff;
+      }
+      .div1 {
+        border: solid 5px #fff;
+        border-radius: 20px;
+        font-size: 3.5rem;
+        text-align: center;
+        padding: 50px;
+        color: #fff;
+      }
+
+      button {
+        display: block;
+        font-size: 30px;
+        background: none;
+        border: solid 2px #fff;
+        color: #fff;
+        border-radius: 10px;
+        padding: 10px 30px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="conainer">
+      <h1 id="main-heading">Favorite Movies</h1>
+      <ul id="movies">
+        <li class="list-item"><span>Match</span> Matrix</li>
+        <li class="list-item">The Secret</li>
+        <li class="list-item">Titanic</li>
+        <li class="list-item">Spider Man</li>
+        <li class="list-item">Avengers</li>
+      </ul>
+    </div>
+  </body>
+
+  <script>
+    // DOM Manipulation
+
+    // getElementById()
+    const title = document.getElementById("main-heading");
+    title.style.color = "red";
+    console.log(title);
+
+    // getElementsByClassName()  // can use querySelectorAll(".list-item")
+    const listItems = document.getElementsByClassName("list-item");
+    console.log(listItems);
+    for (let i = 0; i < listItems.length; i++) {
+      listItems[i].style.fontWeight = "100";
+    }
+
+    // getElementsByTagName()
+    const tagName = document.getElementsByTagName("li");
+    console.log(tagName);
+
+    // createElement()
+    const ul = document.querySelector("ul");
+    const li = document.createElement("li");
+    // Add Element
+    ul.append(li);
+
+    // Modifying the text
+    li.innerText = "Cricket";
+    // const firstListItem = document.querySelector(".list-item");
+    // console.log(firstListItem.innerText);
+    // console.log(firstListItem.textContent);
+    // console.log(firstListItem.innerHTML);
+
+    // Modifying attributes setAttribute(), removeAttribute(), getAttribute()
+    li.setAttribute("class", "list-item");
+    li.setAttribute("id", "cricket");
+    li.removeAttribute("id");
+    console.log(li.getAttribute("class"));
+
+    // Modifying classes classList.add(), classList.remove(), classList.contains()
+    li.classList.add("list-modifying");
+    li.classList.remove("list-modifying");
+    console.log(li.classList.contains("list-modifying"));
+
+    // Remove Element
+    // li.remove();
+
+    // Parent Node Traversing   // parentNode, parentElement
+    console.log(ul.parentNode.parentNode);
+    console.log(li.parentElement.parentElement);
+    console.log(li.parentElement);
+
+    const html = document.documentElement;
+    console.log(html.parentNode);
+    console.log(html.parentElement);
+
+    // Child Node Traversing
+    console.log(ul.childNodes);
+    console.log(ul.firstChild);
+    console.log(ul.lastChild);
+
+    console.log(ul.children);
+    console.log(ul.firstElementChild);
+    console.log(ul.lastElementChild);
+
+    // Sibling Node Traversing
+    console.log(ul.previousSibling);
+    console.log(ul.nextSibling);
+    console.log(ul.previousElementSibling);
+    console.log(ul.nextElementSibling);
+
+    // querySelector()
+    const container = document.querySelector("div");
+    console.log(container);
+
+    // querySelectorAll()
+    const queryAll = document.querySelectorAll("div");
+    console.log(queryAll);
+  </script>
+</html>

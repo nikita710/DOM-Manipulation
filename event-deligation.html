@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegation</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+      * {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: linear-gradient(#0f2027, #203a43, #2c5364);
+        height: 100vh;
+        font-family: "Lato", sans-serif;
+        border: solid 15px #fff;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 4rem;
+      }
+
+      #main-heading {
+        font-size: 2.5rem;
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      #sports {
+        border: solid 5px #fff;
+        padding: 30px;
+        border-radius: 20px;
+        font-size: 2rem;
+        text-align: center;
+        color: #fff;
+      }
+
+      #sports li {
+        margin-bottom: 10px;
+        border: solid 2px #fff;
+        padding: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="conainer">
+      <h1 id="main-heading">Favorite Sports</h1>
+      <ul id="sports">
+        <li id="football">Football</li>
+        <li id="basketball">basketball</li>
+        <li id="boxing">boxing</li>
+        <li id="tennis">tennis</li>
+        <li id="golf">golf</li>
+      </ul>
+    </div>
+
+    <script>
+      // DOM Manipulation
+      // Event Delegation
+      document.querySelector("#sports").addEventListener("click", function (e) {
+        console.log(e.target.id + " is clicked!");
+
+        const target = e.target;
+        if (target.matches("li")) {
+          target.style.backgroundColor = "lightgrey";
+        }
+      });
+
+      const sports = document.querySelector("#sports");
+      const newSport = document.createElement("li");
+      newSport.innerText = "rugby";
+      newSport.setAttribute("id", "rugby");
+      sports.appendChild(newSport);
+      
+    </script>
+  </body>
+</html>
